@@ -22,8 +22,7 @@ public class RegistrationPage {
             currentUdressInput = $("#currentAddress"),
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
-            submitClick = $("#submit"),
-            checkCheck = $(".table-responsive");
+            submitClick = $("#submit");
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
