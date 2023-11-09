@@ -14,54 +14,65 @@ public class RegistrationPage {
             emailInput = $("#userEmail"),
             genderWrapper = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
-            calendarInput = $("#dateOfBirthInput");
-
+            calendarInput = $("#dateOfBirthInput"),
+            hobbies = $("#hobbiesWrapper"),
+            subjectInput = $("#subjectsInput"),
+            uploadFile = $("#uploadPicture");
     CalendarComponent calendarComponent = new CalendarComponent();
 
 
-    public RegistrationPage openPage () {
+    public RegistrationPage openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-
         return this;
     }
 
-    public RegistrationPage setFirstName (String value) {
+    public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
-
         return this;
     }
-    public RegistrationPage setLastName (String value) {
+
+    public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
-
         return this;
     }
 
-    public RegistrationPage setEmail (String value) {
+    public RegistrationPage setEmail(String value) {
         emailInput.setValue(value);
-
         return this;
     }
 
-    public RegistrationPage setGenderWrapper (String value) {
+    public RegistrationPage setGenderWrapper(String value) {
         genderWrapper.$(byText(value)).click();
-
         return this;
     }
 
-    public RegistrationPage setUserNumber (String value) {
+    public RegistrationPage setUserNumber(String value) {
         userNumberInput.setValue(value);
-
         return this;
     }
 
-    public RegistrationPage setDate (String day, String month, String year) {
+    public RegistrationPage setDateOfBirth(String day, String month, String year) {
         calendarInput.click();
         calendarComponent.setDate(day, month, year);
-
         return this;
 
-
     }
+
+    public RegistrationPage setHobbies(String value) {
+        hobbies.$(byText(value)).click();
+        return this;
+    }
+
+    public RegistrationPage setSubject(String value) {
+        subjectInput.val(value).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage uploadPicture (String value) {
+        uploadFile.uploadFromClasspath(value);
+        return this;
+    }
+
 }
