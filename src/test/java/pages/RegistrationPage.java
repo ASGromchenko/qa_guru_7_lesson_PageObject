@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
+import pages.components.CheckResults;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -21,9 +22,12 @@ public class RegistrationPage {
             currentUdressInput = $("#currentAddress"),
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
-            submitClick = $("#submit");
+            submitClick = $("#submit"),
+            checkCheck = $(".table-responsive");
+
 
     CalendarComponent calendarComponent = new CalendarComponent();
+    CheckResults checkResults = new CheckResults();
 
 
     public RegistrationPage openPage() {
@@ -97,6 +101,11 @@ public class RegistrationPage {
 
     public RegistrationPage submit() {
         submitClick.click();
+        return this;
+    }
+
+    public RegistrationPage checkResultsTable(String key, String value) {
+        checkResults.checkResultsTable(key, value);
         return this;
     }
 
