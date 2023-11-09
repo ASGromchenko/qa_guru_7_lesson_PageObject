@@ -17,7 +17,12 @@ public class RegistrationPage {
             calendarInput = $("#dateOfBirthInput"),
             hobbies = $("#hobbiesWrapper"),
             subjectInput = $("#subjectsInput"),
-            uploadFile = $("#uploadPicture");
+            uploadFile = $("#uploadPicture"),
+            currentUdressInput = $("#currentAddress"),
+            stateInput = $("#react-select-3-input"),
+            cityInput = $("#react-select-4-input"),
+            submitClick = $("#submit");
+
     CalendarComponent calendarComponent = new CalendarComponent();
 
 
@@ -72,6 +77,26 @@ public class RegistrationPage {
 
     public RegistrationPage uploadPicture (String value) {
         uploadFile.uploadFromClasspath(value);
+        return this;
+    }
+
+    public RegistrationPage currentAdress (String value) {
+        currentUdressInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setState (String value) {
+        stateInput.setValue(value).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage setCity (String value) {
+        cityInput.setValue(value).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage submit() {
+        submitClick.click();
         return this;
     }
 

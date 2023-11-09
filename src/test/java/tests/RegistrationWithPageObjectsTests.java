@@ -21,12 +21,11 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setDateOfBirth("20", "February", "1991")
                 .setHobbies("Sports")
                 .setSubject("Physics")
-                .uploadPicture("homer.png");
-
-        $("#currentAddress").setValue("Home Address");
-        $("#react-select-3-input").val("NCR").pressEnter();
-        $("#react-select-4-input").val("Delhi").pressEnter();
-        $("#submit").pressEnter();
+                .uploadPicture("homer.png")
+                .currentAdress("Home Address")
+                .setState("NCR")
+                .setCity("Delhi")
+                .submit();
 
         $(".table-responsive").shouldHave(text("Alexander Gromchenko"));
         $(".table-responsive").shouldHave(text("test@gmail.com"));
