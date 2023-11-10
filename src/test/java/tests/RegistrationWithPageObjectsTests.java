@@ -25,16 +25,42 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .currentAdress("Home Address")
                 .setState("NCR")
                 .setCity("Delhi")
-                .submit();
+                .submit()
+                .checkResultsTable("Student Name", "Alexander Gromchenko")
+                .checkResultsTable("Student Email", "test@gmail.com")
+                .checkResultsTable("Gender", "Male")
+                .checkResultsTable("Mobile", "1234567890")
+                .checkResultsTable("Date of Birth", "20 February,1991")
+                .checkResultsTable("Subjects", "Physics")
+                .checkResultsTable("Hobbies", "Sports")
+                .checkResultsTable("Picture", "homer.png")
+                .checkResultsTable("Address", "Home Address")
+                .checkResultsTable("State and City", "NCR Delhi");
+    }
+    @Test
+    void MinimumParams () {
+        registrationPage.openPage()
+                .setFirstName("Alexander")
+                .setLastName("Gromchenko")
+                .setGenderWrapper("Male")
+                .setUserNumber("1234567890")
+                .submit()
+                .checkResultsTable("Student Name", "Alexander Gromchenko")
+                .checkResultsTable("Gender", "Male")
+                .checkResultsTable("Mobile", "1234567890");
 
-        $(".table-responsive").shouldHave(text("Alexander Gromchenko"));
-        $(".table-responsive").shouldHave(text("test@gmail.com"));
-        $(".table-responsive").shouldHave(text("Male"));
-        $(".table-responsive").shouldHave(text("20 February,1991"));
-        $(".table-responsive").shouldHave(text("Physics"));
-        $(".table-responsive").shouldHave(text("Sports"));
-        $(".table-responsive").shouldHave(text("homer.png"));
-        $(".table-responsive").shouldHave(text("Home Address"));
-        $(".table-responsive").shouldHave(text("NCR Delhi"));
+
+    }
+
+    @Test
+    void NegativeTest () {
+        registrationPage.openPage()
+                .setFirstName("Alexander")
+                .setLastName("Gromchenko")
+                .setGenderWrapper("Male")
+                .submit()
+                .verifyTable();
+
+
     }
 }

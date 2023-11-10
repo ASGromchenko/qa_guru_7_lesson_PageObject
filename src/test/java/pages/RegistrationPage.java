@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.CheckResults;
@@ -22,7 +23,8 @@ public class RegistrationPage {
             currentUdressInput = $("#currentAddress"),
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
-            submitClick = $("#submit");
+            submitClick = $("#submit"),
+            tableResults = $(".table-responsive");
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
@@ -105,6 +107,11 @@ public class RegistrationPage {
 
     public RegistrationPage checkResultsTable(String key, String value) {
         checkResults.checkResultsTable(key, value);
+        return this;
+    }
+
+    public RegistrationPage verifyTable () {
+        tableResults.shouldNotBe(Condition.visible);
         return this;
     }
 
