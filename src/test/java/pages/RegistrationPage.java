@@ -20,7 +20,7 @@ public class RegistrationPage {
             hobbies = $("#hobbiesWrapper"),
             subjectInput = $("#subjectsInput"),
             uploadFile = $("#uploadPicture"),
-            currentUdressInput = $("#currentAddress"),
+            currentAddressInput = $("#currentAddress"),
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
             submitClick = $("#submit"),
@@ -86,7 +86,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage currentAdress (String value) {
-        currentUdressInput.setValue(value);
+        currentAddressInput.setValue(value);
         return this;
     }
 
