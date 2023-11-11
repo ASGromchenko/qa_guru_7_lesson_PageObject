@@ -26,7 +26,6 @@ public class RegistrationPage {
             submitClick = $("#submit"),
             tableResults = $(".table-responsive");
 
-
     CalendarComponent calendarComponent = new CalendarComponent();
     CheckResults checkResults = new CheckResults();
 
@@ -85,7 +84,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage currentAdress (String value) {
+    public RegistrationPage currentAddress (String value) {
         currentAddressInput.setValue(value);
         return this;
     }

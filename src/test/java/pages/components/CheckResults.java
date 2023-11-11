@@ -8,8 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CheckResults {
 
-    public CheckResults checkResultsTable(String key, String value) {
+    public void checkResultsTable(String key, String value) {
         $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
-        return this;
     }
 }

@@ -19,7 +19,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setHobbies("Sports")
                 .setSubject("Physics")
                 .uploadPicture("homer.png")
-                .currentAdress("Home Address")
+                .currentAddress("Home Address")
                 .setState("NCR")
                 .setCity("Delhi")
                 .submit()
