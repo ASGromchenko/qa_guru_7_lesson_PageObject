@@ -2,49 +2,51 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import pages.TestData;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
 
     @Test
     void fillFormTest() {
         registrationPage.openPage()
-                .setFirstName("Alexander")
-                .setLastName("Gromchenko")
-                .setEmail("test@gmail.com")
-                .setGenderWrapper("Male")
-                .setUserNumber("1234567890")
-                .setDateOfBirth("20", "February", "1991")
-                .setHobbies("Sports")
-                .setSubject("Physics")
-                .uploadPicture("homer.png")
-                .currentAddress("Home Address")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setEmail(testData.emailName)
+                .setGenderWrapper(testData.gender)
+                .setUserNumber(testData.mobilePhone)
+                .setDateOfBirth(testData.dayOffBirth, testData.monthOfBirth, testData.yearOfBirth)
+                .setHobbies(testData.hobbies)
+                .setSubject(testData.subj)
+                .uploadPicture(testData.picture)
+                .currentAddress(testData.address)
                 .setState("NCR")
                 .setCity("Delhi")
                 .submit()
-                .checkResultsTable("Student Name", "Alexander Gromchenko")
-                .checkResultsTable("Student Email", "test@gmail.com")
-                .checkResultsTable("Gender", "Male")
-                .checkResultsTable("Mobile", "1234567890")
-                .checkResultsTable("Date of Birth", "20 February,1991")
-                .checkResultsTable("Subjects", "Physics")
-                .checkResultsTable("Hobbies", "Sports")
-                .checkResultsTable("Picture", "homer.png")
-                .checkResultsTable("Address", "Home Address")
-                .checkResultsTable("State and City", "NCR Delhi");
+                .checkResultsTable("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResultsTable("Student Email", testData.emailName)
+                .checkResultsTable("Gender", testData.gender)
+                .checkResultsTable("Mobile", testData.mobilePhone)
+                .checkResultsTable("Date of Birth", testData.dayOffBirth + " " + testData.monthOfBirth + "," + testData.yearOfBirth)
+                .checkResultsTable("Subjects", testData.subj)
+                .checkResultsTable("Hobbies", testData.hobbies)
+                .checkResultsTable("Picture", testData.picture)
+                .checkResultsTable("Address", testData.address)
+                .checkResultsTable("State and City", testData.state + " " + testData.city);
     }
     @Test
     void MinimumParams () {
         registrationPage.openPage()
-                .setFirstName("Alexander")
-                .setLastName("Gromchenko")
-                .setGenderWrapper("Male")
-                .setUserNumber("1234567890")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGenderWrapper(testData.gender)
+                .setUserNumber(testData.mobilePhone)
                 .submit()
-                .checkResultsTable("Student Name", "Alexander Gromchenko")
-                .checkResultsTable("Gender", "Male")
-                .checkResultsTable("Mobile", "1234567890");
+                .checkResultsTable("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResultsTable("Gender", testData.gender)
+                .checkResultsTable("Mobile", testData.mobilePhone);
 
 
     }
@@ -52,9 +54,9 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     @Test
     void NegativeTest () {
         registrationPage.openPage()
-                .setFirstName("Alexander")
-                .setLastName("Gromchenko")
-                .setGenderWrapper("Male")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setGenderWrapper(testData.gender)
                 .submit()
                 .verifyTable();
 

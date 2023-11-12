@@ -29,7 +29,6 @@ public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
     CheckResults checkResults = new CheckResults();
 
-
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
