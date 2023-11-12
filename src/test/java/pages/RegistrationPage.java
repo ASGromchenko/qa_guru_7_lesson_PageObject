@@ -21,8 +21,8 @@ public class RegistrationPage {
             subjectInput = $("#subjectsInput"),
             uploadFile = $("#uploadPicture"),
             currentAddressInput = $("#currentAddress"),
-            stateInput = $("#react-select-3-input"),
-            cityInput = $("#react-select-4-input"),
+            stateInput = $("#state"),
+            cityInput = $("#city"),
             submitClick = $("#submit"),
             tableResults = $(".table-responsive");
 
@@ -90,12 +90,14 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setState (String value) {
-        stateInput.setValue(value).pressEnter();
+        stateInput.click();
+        stateInput.$(byText(value)).click();
         return this;
     }
 
     public RegistrationPage setCity (String value) {
-        cityInput.setValue(value).pressEnter();
+        cityInput.click();
+        cityInput.$(byText(value)).click();
         return this;
     }
 
