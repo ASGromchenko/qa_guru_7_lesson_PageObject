@@ -2,7 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import pages.TestData;
+import data.TestData;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
