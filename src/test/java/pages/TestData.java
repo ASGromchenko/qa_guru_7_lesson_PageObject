@@ -19,12 +19,27 @@ public class TestData {
             monthOfBirth = faker.options().option("January", "February", "March", "April",
                     "May", "June", "July", "August", "September", "October", "November", "December"),
             yearOfBirth = String.valueOf(faker.number().numberBetween(2000, 2023)),
-            hobbies = faker.options().option("Sports"),
-            subj = faker.options().option("Physics"),
-            picture = faker.expression("homer.png"),
+            hobbies = faker.options().option("Sports", "Reading", "Music"),
+            subj = faker.options().option("Physics", "Maths"),
+            picture = faker.options().option("homer.png", "cat.jpg"),
             address = faker.address().streetAddress(),
             state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
-            city = faker.options().option("Delhi", "Gurgaon", "Noida");
+            city = setCity(state);
+
+    public String setCity (String state) {
+        switch (state) {
+            case "NCR":
+                return faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh":
+                return faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana":
+                return faker.options().option("Karnal", "Panipat");
+            case "Rajasthan":
+                return faker.options().option("Jaipur", "Jaiselmer");
+        }
+
+        return null;
+    }
 
 
 }
