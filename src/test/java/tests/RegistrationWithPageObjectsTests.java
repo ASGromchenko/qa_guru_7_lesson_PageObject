@@ -37,7 +37,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .checkResultsTable("State and City", testData.state + " " + testData.city);
     }
     @Test
-    void MinimumParams () {
+    void minimumParams() {
         registrationPage.openPage()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
@@ -52,7 +52,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
     }
 
     @Test
-    void NegativeTest () {
+    void negativeTest() {
         registrationPage.openPage()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)

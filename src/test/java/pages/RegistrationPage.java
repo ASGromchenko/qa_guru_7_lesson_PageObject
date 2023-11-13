@@ -78,23 +78,23 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage uploadPicture (String value) {
+    public RegistrationPage uploadPicture(String value) {
         uploadFile.uploadFromClasspath(value);
         return this;
     }
 
-    public RegistrationPage currentAddress (String value) {
+    public RegistrationPage currentAddress(String value) {
         currentAddressInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setState (String value) {
+    public RegistrationPage setState(String value) {
         stateInput.click();
         stateInput.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage setCity (String value) {
+    public RegistrationPage setCity(String value) {
         cityInput.click();
         cityInput.$(byText(value)).click();
         return this;
@@ -110,7 +110,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage verifyTable () {
+    public RegistrationPage verifyTable() {
         tableResults.shouldNotBe(Condition.visible);
         return this;
     }
